@@ -1,6 +1,7 @@
 h1 {
 
     font-size: 12vh;
+    touch-action: manipulation;
 }
 
 body {
@@ -38,6 +39,7 @@ button:hover {
 .counter {
 
     width: 10vw;
+    touch-action: manipulation;
 
  }
 
