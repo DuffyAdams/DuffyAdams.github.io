@@ -9,6 +9,7 @@ body {
     font-size: 6vw;
     color: white;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    touch-action: manipulation;
 }
 
 button {
@@ -23,12 +24,14 @@ button {
     padding: 2vw;
     width: 28vw;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    touch-action: manipulation;
     
 }
 button:hover {
     background-color: #27AE60; /* Green */
     color: rgb(255, 255, 255);
     width: 28vw;
+    touch-action: manipulation;
 
   }
 
@@ -37,7 +40,4 @@ button:hover {
     width: 10vw;
 
  }
-.disable-dbl-tap-zoom {
-  touch-action: manipulation;
-}
-  
+
