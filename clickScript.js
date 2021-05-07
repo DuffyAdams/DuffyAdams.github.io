@@ -2,6 +2,7 @@ var btn = document.querySelector('#increment');
 var ctr = document.querySelector('#counter');
 var upg = document.querySelector('#upgradeClick');
 var upgps = document.querySelector('#upgradePerSec');
+var upgcp = document.querySelector('#upgradeClickPrice');
 
 
 var counter = 0;
@@ -10,17 +11,23 @@ var perSecUpgrade = 0;
 var upgradeClickPrice = 10
 var upgradePerSecPrice = 15;
 
+document.getElementById('clickUpgrade').innerHTML = " " + clickUpgrade;
+document.getElementById('upgradeClickPrice').innerHTML = " " + upgradeClickPrice;
+
 var increment = function() {
     counter += clickUpgrade;
     ctr.textContent = counter;
 };
 var upgradeClick = function() {
+
     if (counter >= upgradeClickPrice){
         clickUpgrade++;
         counter = counter - upgradeClickPrice;
         ctr.textContent = counter;
         upgradeClickPrice = Math.round(upgradeClickPrice * 1.1);
-        document.getElementById('clickUpgrade').innerHTML = "(" + clickUpgrade + ")";
+        document.getElementById('clickUpgrade').innerHTML = " " + clickUpgrade;
+        document.getElementById('upgradeClickPrice').innerHTML = " " + upgradeClickPrice;
+
     }
     }
 var upgradePerSec = function() {

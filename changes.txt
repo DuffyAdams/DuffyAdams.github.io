@@ -4,6 +4,7 @@ minor changes
 *change background color based on points
 *button hover animations
 *synchronize Upgrade Per Sec
+*make math.log
  
  major changes
 

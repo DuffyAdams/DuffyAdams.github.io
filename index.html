@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,20 +10,25 @@
 
 </head>
 <div class="fade-in-text">
-<h1>Clicker</h1>
-<body>
-    
-    <span id="counter">0</span>
+    <h1>Clicker</h1>
 
-    <br>
-    <button id="increment">Click Me</button>
-    <br>
-    <button id="upgradeClick">Upgrade Click <span id="clickUpgrade"></span></button>
-    <br>
-    <button id="upgradePerSec">Upgrade Per Sec <span id="perSecUpgrade"></span></button>
-    <script type="text/javascript"  src="clickScript.js" charset="utf-8"></script>
+    <body>
+
+        <span id="counter">0</span>
+
+        <br>
+        <button id="increment">Click Me</button>
+        <br>
+        <button id="upgradeClick">Upgrade Click<br>
+            <p>Level:<span id="clickUpgrade"></span></p>
+            <p>Cost:<span id="upgradeClickPrice"></span></p>
+        </button>
+        <br>
+        <button id="upgradePerSec">Upgrade Auto Click <span id="perSecUpgrade"></span></button>
+        <script type="text/javascript" src="clickScript.js" charset="utf-8"></script>
 
 
-</body>
+    </body>
 </div>
+
 </html>
