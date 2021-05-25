@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+
     <title>Clicker</title>
 
-</head>
-<div class="fade-in-text">
-<h1>Clicker</h1>
-<body>
-    
-    <span id="counter">0</span>
+        </div>
+      </div>
+  </head>
+  <div class="fade-in-text">
+    <h1>Clicker</h1>
 
-    <br>
-    <button id="increment">Click Me</button>
-    <br>
-    <button id="upgradeClick">Upgrade Click <span id="clickUpgrade"></span></button>
-    <br>
-    <button id="upgradePerSec">Upgrade Per Sec <span id="perSecUpgrade"></span></button>
-    <script type="text/javascript"  src="clickScript.js" charset="utf-8"></script>
+    <body class = "gameStyle">
+      <span id="counter">0</span>
 
+      <br />
 
-</body>
-</div>
+      <button id="increment">Click Me</button>
+      <br />
+      <button id="upgradeClick">
+        Upgrade Click<br />
+        <p>Level:<span id="clickUpgrade"></span></p>
+        <p>Cost:<span id="upgradeClickPrice"></span></p>
+      </button>
+      <br />
+      <button id="upgradePerSec">
+        Upgrade Auto Click <span id="perSecUpgrade"></span>
+      </button>
+      <br />
+
+      <button type="button" onclick= 'savedGame("ClickerSaveFile.txt", counter)'>Save Game</button>
+      <script
+      type="text/javascript"
+      src="clickScript.js"
+      charset="utf-8"
+    ></script>
+    </body>
+  </div>
+  
 </html>
