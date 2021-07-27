@@ -4,8 +4,11 @@
 html{
     text-align:center;
     overflow: hidden;
+    touch-action: manipulation;
+
 }
 input {
+    touch-action: manipulation;
     height: 6vh;
     float: right;
     margin-right: 3vh;
