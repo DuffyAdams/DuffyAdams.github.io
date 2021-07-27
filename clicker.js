@@ -5,6 +5,25 @@ var button3 = document.getElementById("passiveUpgrade");
 document.getElementById("passiveUpgrade").disabled = true;
 var countDisplay = document.getElementById("count-display");
 
+// Select the button
+const btn = document.getElementById("lightmode");
+// Select the stylesheet <link>
+const theme = document.getElementById("theme-link");
+
+// Listen for a click on the button
+btn.addEventListener("click", function() {
+  // If the current URL contains "ligh-theme.css"
+  if (theme.getAttribute("href") == "styles.css") {
+    // ... then switch it to "dark-theme.css"
+    theme.href = "dark-styles.css";
+    
+  // Otherwise...
+  } else {
+    // ... switch it to "light-theme.css"
+    theme.href = "styles.css";
+  }
+});
+
 count = 0;
 upgrade = 0;
 seconds = 0;
