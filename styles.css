@@ -1,3 +1,6 @@
+.disable-dbl-tap-zoom {
+  touch-action: manipulation;
+}
 html{
     text-align:center;
 }
