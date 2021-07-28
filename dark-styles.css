@@ -7,7 +7,17 @@
       touch-action: manipulation;
   
   }
-  input {
+  .saveButton {
+    touch-action: manipulation;
+    height: 5vh;
+    float: left;
+    margin-left: 3vh;
+    margin-top: 2.5vh;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%); 
+
+}
+  .lightbulb {
       touch-action: manipulation;
       height: 6vh;
       float: right;

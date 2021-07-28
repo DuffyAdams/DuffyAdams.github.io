@@ -5,38 +5,75 @@ var button3 = document.getElementById("passiveUpgrade");
 document.getElementById("passiveUpgrade").disabled = true;
 var countDisplay = document.getElementById("count-display");
 
-// Select the button
 const btn = document.getElementById("lightmode");
-// Select the stylesheet <link>
 const theme = document.getElementById("theme-link");
+const savbtn = document.getElementById("saveButton")
 
-// Listen for a click on the button
-btn.addEventListener("click", function() {
-  // If the current URL contains "ligh-theme.css"
+btn.addEventListener("click", function () {
   if (theme.getAttribute("href") == "styles.css") {
-    // ... then switch it to "dark-theme.css"
     theme.href = "dark-styles.css";
-    
-  // Otherwise...
   } else {
-    // ... switch it to "light-theme.css"
     theme.href = "styles.css";
   }
 });
 
-count = 0;
-upgrade = 0;
-seconds = 0;
-upgradeCost = 10;
-passiveUpgrade = 0;
-passiveUpgradeCost = 10;
-clickPower = 1;
-timeSpeed = 1000;
-x = 0;
-function check_count() {
-  convertCount = nFormatter(count,2);
+function startGame(){
+  convertCount = 0;
+  count = 0;
+  upgrade = 0;
+  seconds = 0;
+  upgradeCost = 10;
+  clickPower = 1;
+  passiveUpgradeCost = 10;
+  passiveUpgrade = 0;
+  timeSpeed = 1000;
+  x = 0;
+}
+startGame();
+load();
+displayButtons();
+check_count();
+
+
+
+function displayButtons(){
+  convertCount = nFormatter(count, 2);
   upgradeCost = round5(upgradeCost)
   passiveUpgradeCost = round5(passiveUpgradeCost)
+
+  countDisplay.innerHTML = (convertCount);
+  button2.innerHTML = "Clicker Upgrade: " + (clickPower) + " (" + (upgradeCost) + ")";
+  button3.innerHTML = "Auto Click Upgrade: " + (passiveUpgrade) + " (" + (passiveUpgradeCost) + ")";
+
+
+}
+
+
+function save() {
+  localStorage.setItem('upgrade', JSON.stringify(upgrade));
+  localStorage.setItem('count', JSON.stringify(count));
+  localStorage.setItem('seconds', JSON.stringify(seconds));
+  localStorage.setItem('upgradeCost', JSON.stringify(upgradeCost));
+  localStorage.setItem('passiveUpgrade', JSON.stringify(passiveUpgrade));
+  localStorage.setItem('passiveUpgradeCost', JSON.stringify(passiveUpgradeCost));
+  localStorage.setItem('clickPower', JSON.stringify(clickPower));
+  localStorage.setItem('timeSpeed', JSON.stringify(timeSpeed));
+  localStorage.setItem('x', JSON.stringify(x));
+
+}
+function load() {
+  upgrade = JSON.parse(localStorage.getItem('upgrade') || 0);
+  count = JSON.parse(localStorage.getItem('count') || 0);
+  seconds = JSON.parse(localStorage.getItem('seconds') || 0);
+  upgradeCost = JSON.parse(localStorage.getItem('upgradeCost') || 10);
+  passiveUpgrade = JSON.parse(localStorage.getItem('passiveUpgrade') || 0);
+  passiveUpgradeCost = JSON.parse(localStorage.getItem('passiveUpgradeCost') || 10);
+  clickPower = JSON.parse(localStorage.getItem('clickPower') || 1);
+  timeSpeed = JSON.parse(localStorage.getItem('timeSpeed') || 1000);
+  x = JSON.parse(localStorage.getItem('x'));
+}
+
+function check_count() {
 
   if (count >= (upgradeCost)) {
     document.getElementById("upgrade").disabled = false;
@@ -48,8 +85,8 @@ function check_count() {
   } else {
     document.getElementById("passiveUpgrade").disabled = true;
   }
-  countDisplay.innerHTML = (convertCount);
-
+displayButtons();
+save();
 }
 function nFormatter(num, digits) {
   const lookup = [
@@ -68,13 +105,11 @@ function nFormatter(num, digits) {
   });
   return item ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol : "0";
 }
-
 function update() {
 
   count += 1;
   check_count();
 }
-
 function clickMeFunc() {
   count += clickPower;
   check_count();
@@ -87,13 +122,13 @@ function buyUpgradeFunc() {
   upgrade += 1;
   upgradeCost = upgradeCost * 1.1;
   clickPower += 1;
-  check_count();
   button2.innerHTML = "Clicker Upgrade: " + (clickPower) + " (" + (upgradeCost) + ")";
   countDisplay.innerHTML = (count);
-
+  check_count();
 }
-
 function passiveUpgradeFunc() {
+  myInterval =  0;
+
   while (x < 1) {
     myInterval = setInterval(update, timeSpeed);
     x++;
@@ -108,11 +143,12 @@ function passiveUpgradeFunc() {
   if (x > 1) {
     clearInterval(myInterval);
     myInterval = setInterval(update, timeSpeed);
+    check_count();
+
   }
   x++;
   check_count();
-  button3.innerHTML = "Auto Click Upgrade: " + (passiveUpgrade) + " (" + (passiveUpgradeCost) + ")";
-  check_count();
+
 
 
 
